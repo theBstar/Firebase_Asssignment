@@ -1,0 +1,9 @@
+body {
+    background: teal;
+    text-align: center;
+    font-size: large;
+}
+
+input {
+    display: inline-block;
+}
