@@ -1,7 +1,7 @@
 const admin             = require("firebase-admin");
 //replace the **../fir-project-f7eae-firebase-adminsdk-uzbps-ede111a35c.json**
 //by your own sdk keys address
-const serviceAccount    = require("../fir-project-f7eae-firebase-adminsdk-uzbps-ede111a35c.json");
+const serviceAccount    = require("PUT HERE");
 
 
 
