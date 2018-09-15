@@ -16,3 +16,5 @@ After this the app sends an email to the user.
 6. Goto project > app > dbHandler and update the address on the 4th line
 7. Goto project > app > mailer and update the 5th and 6th line with your emailid and password
 8. Please provide your feedback.
+
+Project URL https://console.firebase.google.com/u/0/project/fir-project-f7eae/overview
