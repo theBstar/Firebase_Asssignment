@@ -3,7 +3,6 @@
     <head>
         <title>Welcome</title>
         <link rel="stylesheet" href="master.css" type="text/css" />
-        
     </head>
     <body>
         <h1>Welcome</h1>
@@ -15,4 +14,13 @@
             <input type="submit" value="Submit"/>
         </form>
     </body>
+    <script>
+        if(status.afterPost) {
+            if(status.success){
+                alert("User added, Email sent!")
+            }else{
+                alert("Somthing went wrong!")  
+            }
+        }
+    </script>
 </html>

@@ -1,19 +1,13 @@
 const express           = require("express");
 const app               = express();
 const bodyParser        = require("body-parser");
-const admin             = require("firebase-admin");
-const serviceAccount    = require("./fir-project-f7eae-firebase-adminsdk-uzbps-ede111a35c.json");
-const PORT              = process.env.PORT;
-const IP                = process.env.IP;
+const mailer            = require("./app/mailer");
+const dbHandler         = require("./app/dbHandler");
+const PORT              = process.env.PORT || 3000;
 
-// initializing the admin sdk
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fir-project-f7eae.firebaseio.com"
-});
-//creating the database instance
-const db = admin.database();
-// creating a ref to users
+
+
+
 
 //setting up the render engine
 app.set("view engine", "ejs");
@@ -23,33 +17,46 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
+
+
 app.route( "/" )
     .get( function( req, res ) {
         res.render("index");
     })
     .post( function( req, res ) {
-        //creating the ref point in the real time database
-        const users = db.ref("users");
-        const usersInformation = db.ref("usersInformation");
-        // inserting the user into the usernode
-        users.push({
+        let status = {
+            afterPost: true,
+            success: undefined
+        }
+        
+        const user = {
             name: req.body.name,
             emailId: req.body.emailId
-        });
+        };
+        dbHandler(user)
+            .then(( user )=>{
+                mailer( user )
+                .then(()=>{
+                    console.log('Email sent to '+ user.emailId );
+                    status.success = true;
+                })
+                .catch((err)=>{
+                    status.success = false;
+                    console.log(err);
+                })
+            })
+            .catch((err)=>{
+                status.success = false;
+                console.log(err);
+            })
         
-        //listening to the changes on the users node
-        users.once("child_added", function( snapshot ) {
-            const data = snapshot.val();
-            usersInformation.push({
-                name: data.name,
-                emailId: data.emailId
-            });
-            
-        })
-        res.redirect("/");
-    })
+        res.render("index", {status});
+    });
+    
+
+    
 
 
-app.listen(PORT, IP, function() {
+app.listen(PORT, function() {
     console.log("the server is running");
 })
