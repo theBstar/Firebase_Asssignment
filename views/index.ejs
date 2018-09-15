@@ -5,14 +5,22 @@
         <link rel="stylesheet" href="master.css" type="text/css" />
     </head>
     <body>
-        <h1>Welcome</h1>
-        <form method="POST" action="/">
-            <label for="name">Enter Your Name:</label>
-            <input type="text" name="name" id="name"/>
-            <label for="emailId">Enter Your Email</label>
-            <input type="email" name="emailId" id="emailId">
-            <input type="submit" value="Submit"/>
-        </form>
+        <main>
+            <h1>Welcome</h1>
+            <form method="POST" action="/">
+                <div id="name-div">
+                    <label for="name">Enter Your Name:</label>
+                    <input type="text" name="name" id="name"/>
+                </div>
+                <div id="emailId-div">
+                    <label for="emailId">Enter Your Email</label>
+                    <input type="email" name="emailId" id="emailId">
+                </div>
+                <div id="submit-div">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </main>
     </body>
     <script>
         if(status.afterPost) {

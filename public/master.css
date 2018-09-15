@@ -1,9 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
 body {
     background: teal;
     text-align: center;
     font-size: large;
+    color: white;
+    width: 100%;
+}
+
+main {
+    margin:  10% auto;
+    width: 80%;
 }
 
 input {
-    display: inline-block;
+    margin: 20px;
+    font-size: 1.5em;
+    height: 1.5em;
+    padding-left: 20px;
+}
+input[type="submit"] {
+    padding: 10px;
+    height: auto;
 }

@@ -1,18 +1,18 @@
-
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+#Programming Assignment for Back-End Developer
 
 
-Hi there! Welcome to Cloud9 IDE!
+This app uses firebase to store user info in a node users
+another node UserInformation is updated automatically on every
+new user added to the users node.
+After this the app sends an email to the user.
 
-To get you started, create some files, play with the terminal,
-or visit http://docs.c9.io for our documentation.
-If you want, you can also go watch some training videos at
-http://www.youtube.com/user/c9ide.
+##Guide to run the app
 
-Happy coding!
-The Cloud9 IDE team
+1. Clone the repo
+2. Go to the project folder and Run npm install
+3. Start a firebase project
+4. Now get your firebase sdk private key by going to project>setting>service accounts
+5. Add the private key to your project folder
+6. Goto project > app > dbHandler and update the address on the 4th line
+7. Goto project > app > mailer and update the 5th and 6th line with your emailid and password
+8. Please provide your feedback.
