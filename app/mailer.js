@@ -9,7 +9,7 @@ const SECRET            = {
 // creating the mail transporter
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'gmail', //replace with your service provider
   auth: {
     user: SECRET.emailId,
     pass: SECRET.password

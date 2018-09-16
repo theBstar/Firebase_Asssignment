@@ -21,36 +21,38 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.route( "/" )
     .get( function( req, res ) {
-        res.render("index");
+        const afterPost= false;
+        const success = false;
+        res.render("index", {afterPost, success});
     })
     .post( function( req, res ) {
-        let status = {
-            afterPost: true,
-            success: undefined
-        }
+        const afterPost= true;
+        let success = false;
         
         const user = {
             name: req.body.name,
             emailId: req.body.emailId
         };
+        
         dbHandler(user)
             .then(( user )=>{
                 mailer( user )
                 .then(()=>{
                     console.log('Email sent to '+ user.emailId );
-                    status.success = true;
+                    success = true;
+                    res.render("index", {afterPost, success});
                 })
                 .catch((err)=>{
-                    status.success = false;
+                    success = false;
                     console.log(err);
+                    res.render("index", {afterPost, success});
                 })
             })
             .catch((err)=>{
-                status.success = false;
+                success = false;
                 console.log(err);
-            })
-        
-        res.render("index", {status});
+                res.render("index", {afterPost, success});
+            });
     });
     
 

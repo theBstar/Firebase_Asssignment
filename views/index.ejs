@@ -10,25 +10,29 @@
             <form method="POST" action="/">
                 <div id="name-div">
                     <label for="name">Enter Your Name:</label>
-                    <input type="text" name="name" id="name"/>
+                    <input type="text" name="name" id="name" required/>
                 </div>
                 <div id="emailId-div">
                     <label for="emailId">Enter Your Email</label>
-                    <input type="email" name="emailId" id="emailId">
+                    <input type="email" name="emailId" id="emailId" required>
                 </div>
                 <div id="submit-div">
                     <input type="submit" value="Submit"/>
                 </div>
             </form>
         </main>
-    </body>
-    <script>
-        if(status.afterPost) {
-            if(status.success){
-                alert("User added, Email sent!")
-            }else{
-                alert("Somthing went wrong!")  
+        <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            let afterPost = <%= afterPost %>
+            if(afterPost){
+                let success = <%= success %>
+                if(success){
+                    alert("Usre added, Email sent!");
+                }else{
+                    alert("Something went wrong!")
+                }
             }
-        }
-    </script>
+        })
+        </script>
+    </body>
 </html>
