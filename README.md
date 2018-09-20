@@ -18,4 +18,4 @@ After this the app sends an email to the user.
 8. Goto project > app > mailer and update the 5th and 6th line with your emailid and password
 9. Please provide your feedback.
 
-Project URL https://console.firebase.google.com/u/0/project/fir-project-f7eae/overview
+
