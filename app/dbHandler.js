@@ -1,5 +1,5 @@
 const admin             = require("firebase-admin");
-//replace the **../fir-project-f7eae-firebase-adminsdk-uzbps-ede111a35c.json**
+//replace the **..PUT HERE**
 //by your own sdk keys address
 const serviceAccount    = require("PUT HERE");
 
@@ -8,7 +8,7 @@ const serviceAccount    = require("PUT HERE");
 // initializing the admin sdk
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fir-project-f7eae.firebaseio.com"
+  databaseURL: "YOUR REAL TIME DB URL"  //add your real time url here
 });
 //creating the database instance
 const db = admin.database();
