@@ -35,6 +35,4 @@ function mailer( user ) {
     });
 }
 
-//I couldn't figure out why import and export are not working
-//I would appreciate your input
 module.exports = mailer;
